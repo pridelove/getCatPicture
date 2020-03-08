@@ -17,6 +17,8 @@ def getCat(url):
         response = requests.request('get', url, headers=header).text
         cat_picture_list = re.findall(r' data-original="(http://\S+.jpg)', response)
         for i in cat_picture_list:
+            #发现第一次下载的缩略图
+            i = i.replace('bmiddle', 'large')
             downCarPicture(i)
     except Exception as e:
         print(e)
