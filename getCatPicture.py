@@ -44,7 +44,8 @@ def getLink(page):
 def _request():
     thread_list = []
     start = time.time()
-    for i in range(1, 78):
+    #网页改版 每次最多获取到最多20页
+    for i in range(1, 21):
         temp = threading.Thread(target=getLink, args=(i,))
         thread_list.append(temp)
     for t in thread_list:
